@@ -1,7 +1,6 @@
 import dayjs from 'dayjs'
 import Cookies from 'js-cookie'
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
 import md5 from 'md5'
 
 export const getSystem = () => {

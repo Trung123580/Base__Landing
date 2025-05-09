@@ -1,5 +1,5 @@
 import {createAsyncThunk} from '@reduxjs/toolkit'
-import axiosInstance from '@/services/baseAxios'
+import axiosInstance from '../services/baseAxios'
 import axios from 'axios'
 
 const BASE_API = process.env.NEXT_PUBLIC_API_BASE_URL
