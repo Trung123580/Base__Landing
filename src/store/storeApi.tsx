@@ -1,5 +1,5 @@
 import {createSlice, type PayloadAction, } from '@reduxjs/toolkit'
-import {getListConfig, getRegisterQuantity, getSiteConfig, postDoAction} from '../services'
+import {getSiteConfig} from '../services'
 
 export interface storeState {
   siteConfig: any
@@ -28,15 +28,15 @@ export const storeSlice = createSlice({
     builder.addCase(getSiteConfig.fulfilled, (state, action: PayloadAction<any>) => {
       state.siteConfig = action.payload
     })
-    builder.addCase(getRegisterQuantity.fulfilled, (state, action: PayloadAction<any>) => {
-      state.quantity = action.payload
-    })
-    builder.addCase(postDoAction.fulfilled, (state, action: PayloadAction<boolean>) => {
-      state.doAction = action.payload
-    })
-    builder.addCase(getListConfig.fulfilled, (state, action: PayloadAction<any>) => {
-      state.configSlide = action.payload
-    })
+    // builder.addCase(getRegisterQuantity.fulfilled, (state, action: PayloadAction<any>) => {
+    //   state.quantity = action.payload
+    // })
+    // builder.addCase(postDoAction.fulfilled, (state, action: PayloadAction<boolean>) => {
+    //   state.doAction = action.payload
+    // })
+    // builder.addCase(getListConfig.fulfilled, (state, action: PayloadAction<any>) => {
+    //   state.configSlide = action.payload
+    // })
   },
 })
 

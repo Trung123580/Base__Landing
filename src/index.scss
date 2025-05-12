@@ -12,6 +12,7 @@ picture {
 
   img {
     display: block;
+    object-fit: contain;
   }
 }
 #scaleWrapper {
@@ -50,6 +51,7 @@ picture {
     display: none;
   }
 }
+
 #transformWrapper {
   width: 768px;
   height: auto;
@@ -63,6 +65,10 @@ picture {
   @media screen and (min-width: 1921px) {
     width: 2560px;
   }
+
+  // &.isHome {
+  //   padding-bottom: 200px;
+  // }
 }
 
 .no-scroll {
@@ -169,3 +175,9 @@ picture {
     mask-position: 0% 0px;
   }
 }
+
+.bg-header{
+  background: linear-gradient(0%, #812929 0%, #94312f 100%);
+}
+// 812929
+// 94312f

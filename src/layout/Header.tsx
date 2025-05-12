@@ -4,6 +4,7 @@ import {useApp} from '../context/AuthProvider'
 import {getDevice, handleLogin, handleLogout} from '../utils/base'
 import {useSelector} from 'react-redux'
 import {type RootState} from '../store/store'
+import ScaleLayout from '../components/ScaleLayout'
 
 const Header = () => {
   const [isShow, setIsShow] = useState<boolean>(false)
@@ -12,6 +13,8 @@ const Header = () => {
   const handleShowMenu = () => {
     setIsShow(!isShow)
   }
+  console.log('siteConfig', siteConfig)
+  
   const linkDowLoad = () => {
     const check = getDevice()
     if (check === 'ADR') {
@@ -29,12 +32,12 @@ const Header = () => {
   }
   return (
     <>
-      <section className="md:hidden block h-[75px] bg-red">
-        <div className="max-w-[644px] mx-auto flex items-center h-full gap-x-2 px-5">
-          <h1>
-            <a href={'/'}>
-              <img className="object-contain aspect-[100/100]" src={'/assets/header/logo.png'} width={100} height={100} alt={''}/>
+      <section className="md:hidden block h-[75px] bg-[linear-gradient(to_right,#812929,#94312f)]">
+        <div className="max-w-[644px] w-full mx-auto flex items-center h-full gap-x-2 px-5">
+          <h1 className=''>
+            <a href={'/'} className=''>
             </a>
+              <img className="object-contain aspect-[100/100]" src={siteConfig?.site_logo_url} alt={''}/>
           </h1>
           <div className="flex">
             {isAuthenticated ? <Button onClick={() => handleLogout({key: ['token']})}> 

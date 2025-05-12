@@ -1,6 +1,6 @@
 import {createContext, useContext, useEffect, useState} from 'react'
 import Cookies from 'js-cookie'
-import {getListConfig, getRegisterQuantity, getSiteConfig, getVplayUserInfo} from '../services'
+import {getSiteConfig, getVplayUserInfo} from '../services'
 import {useDispatch} from 'react-redux'
 
 type AuthContextType = {
@@ -29,8 +29,8 @@ const AuthProvider = ({children}: { children: React.ReactNode }) => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getSiteConfig() as any)
-    dispatch(getRegisterQuantity() as any)
-    dispatch(getListConfig() as any)
+    // dispatch(getRegisterQuantity() as any)
+    // dispatch(getListConfig() as any)
   }, [dispatch])
 
   useEffect(() => {

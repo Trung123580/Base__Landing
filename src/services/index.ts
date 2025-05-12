@@ -2,9 +2,9 @@ import {createAsyncThunk} from '@reduxjs/toolkit'
 import axiosInstance from '../services/baseAxios'
 import axios from 'axios'
 
-const BASE_API = process.env.NEXT_PUBLIC_API_BASE_URL
-const BASE_API_HUB = process.env.NEXT_PUBLIC_HUB
-const GAME_ID = process.env.NEXT_PUBLIC_GAME_ID
+const BASE_API = import.meta.env.VITE_APP_API_BASE_URL
+const BASE_API_HUB = import.meta.env.VITE_APP_HUB
+const GAME_ID = import.meta.env.VITE_APP_GAME_ID
 // import axiosInstance from './baseAxios'
 
 // export const postJoinGuild = async ({ guildId, vplayId, vplayName }: { guildId: number; vplayId: number; vplayName: string }) => {
@@ -59,51 +59,52 @@ export const getVplayUserInfo = async (token?: string) => {
 //     return null
 //   }
 // }
-export const getRegisterQuantity = createAsyncThunk('quantity', async () => {
-  try {
-    const response = await axiosInstance.get('GetRegisterQuantity')
-    if (response.status === 200) {
-      return response.data
-    } else {
-      throw new Error('data not found!')
-    }
-  } catch (error) {
-    return null
-  }
-})
-export const getListConfig = createAsyncThunk('listConfig', async () => {
-  try {
-    const response = await axiosInstance.get('GetListConfig')
-    if (response.status === 200) {
-      return response.data
-    } else {
-      throw new Error('data not found!')
-    }
-  } catch (error) {
-    return null
-  }
-})
-export const postDoAction = createAsyncThunk('doAction', async ({vplayName,vplayId, action }: {vplayName:string,vplayId: number , action: string}) => {
-  const body = {
-    vplayId: vplayId,
-    vplayName: vplayName,
-    action: action,
-  }
-  try {
-    const response = await axiosInstance.post('DoAction', {...body})
-    if (response.status === 200) {
-      if (action === 'register'){
-        return true
-      }else{
-        return response.data
-      }
-    } else {
-      throw new Error('data not found!')
-    }
-  } catch (error) {
-    return false
-  }
-})
+// export const getRegisterQuantity = createAsyncThunk('quantity', async () => {
+//   try {
+//     const response = await axiosInstance.get('GetRegisterQuantity')
+//     if (response.status === 200) {
+//       return response.data
+//     } else {
+//       throw new Error('data not found!')
+//     }
+//   } catch (error) {
+//     return null
+//   }
+// })
+// export const getListConfig = createAsyncThunk('listConfig', async () => {
+//   try {
+//     const response = await axiosInstance.get('GetListConfig')
+//     if (response.status === 200) {
+//       return response.data
+//     } else {
+//       throw new Error('data not found!')
+//     }
+//   } catch (error) {
+//     return null
+//   }
+// })
+// export const postDoAction = createAsyncThunk('doAction', async ({vplayName,vplayId, action }: {vplayName:string,vplayId: number , action: string}) => {
+//   const body = {
+//     vplayId: vplayId,
+//     vplayName: vplayName,
+//     action: action,
+//   }
+//   try {
+//     const response = await axiosInstance.post('DoAction', {...body})
+//     if (response.status === 200) {
+//       if (action === 'register'){
+//         return true
+//       }else{
+//         return response.data
+//       }
+//     } else {
+//       throw new Error('data not found!')
+//     }
+//   } catch (error) {
+//     return false
+//   }
+// })
+
 export const getSiteConfigServer = async () => {
   try {
     const response = await axios.get(`${BASE_API_HUB}/api/frontend/config`, {
